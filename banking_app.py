@@ -26,15 +26,36 @@ class Bank:
         if amount:
             self.balance = self.balance + amount
             self.transaction(f"Deposited {amount}")
-        return self.balance
-
+            # return self.balance
 account = Bank(100.50)
-account.withdrawal(30.23)
-print(account.balance)
 
+while True:
+    choose_transaction_type = input("What type of transaction do you want to perform? ")
+    transaction_types = ["withdrawal", "deposit"]
+    if choose_transaction_type in transaction_types:
+        if choose_transaction_type == "withdrawal":
+            withdraw_amount = input("How much do you want to withdraw? ")
+            try:
+                withdraw_amount = float(withdraw_amount)
+            except ValueError:
+                print("Enter a valid number")
+            except Exception as e:
+                print("uknown")
+                print(type(e))
+            account.withdrawal(withdraw_amount)
+        else:
+            deposit_amount = input("How much do you want to deposit? ")
+            try:
+                deposit_amount = float(deposit_amount)
+            except ValueError:
+                print("Enter a valid number")
+            except Exception as e:
+                print("uknown")
+                print(type(e))
+            account.Deposit(deposit_amount)
+        print(f"Your Balance is:  {account.balance}")
+                
 
-depo = account.Deposit(90.34)
-print(depo)
 
 
 
