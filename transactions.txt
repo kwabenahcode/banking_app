@@ -5,3 +5,5 @@ withdrew 30.23
 Deposited 90.34 
 Deposited 68.9 
 withdrew 0.4 
+withdrew 7000.0 
+withdrew 5000.0 

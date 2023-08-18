@@ -13,9 +13,12 @@ class Bank:
             withdraw_amount = float(withdraw_amount)
         except ValueError:
             withdraw_amount = 0
-        if withdraw_amount:
+        if withdraw_amount > self.balance:
+            print("Insufficient Balance, work hard and deposit more money😄")
+        else:
             self.balance = self.balance - withdraw_amount
             self.transaction(f"withdrew {withdraw_amount}")
+            
         # return self.balance
     
     def Deposit(self, amount):
@@ -30,7 +33,7 @@ class Bank:
 account = Bank(100.50)
 
 while True:
-    choose_transaction_type = input("What type of transaction do you want to perform? ")
+    choose_transaction_type = input("What type of transaction do you want to perform(withdrawal or Deposit)? ").lower()
     transaction_types = ["withdrawal", "deposit"]
     if choose_transaction_type in transaction_types:
         if choose_transaction_type == "withdrawal":
@@ -54,7 +57,9 @@ while True:
                 print(type(e))
             account.Deposit(deposit_amount)
         print(f"Your Balance is:  {account.balance}")
-                
+    else:
+        print("Please confirm that you are spelling the right word")
+                   
 
 
 
